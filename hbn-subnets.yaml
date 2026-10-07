@@ -1,0 +1,48 @@
+ci:
+  doca8:
+    description: Reserved for the doca8 CI cluster
+
+subnets:
+  0:
+    cidr: 10.6.156.160/28
+    slots:
+      0: 10.6.156.160/29
+      1: 10.6.156.168/29
+  1:
+    cidr: 10.6.156.176/28
+    slots:
+      0: 10.6.156.176/29
+      1: 10.6.156.184/29
+  2:
+    cidr: 10.6.156.192/28
+    slots:
+      0: 10.6.156.192/29
+      1: 10.6.156.200/29
+  3:
+    cidr: 10.6.156.208/28
+    slots:
+      0: 10.6.156.208/29
+      1: 10.6.156.216/29
+  4:
+    cidr: 10.6.156.224/28
+    slots:
+      0: 10.6.156.224/29
+      1: 10.6.156.232/29
+  5:
+    cidr: 10.6.156.240/28
+    slots:
+      0: 10.6.156.240/29
+      1: 10.6.156.248/29
+
+assignments:
+  2:
+    0: josecastillolema
+    1: josecastillolema
+  3:
+    0: linoyaslan
+  4:
+    0: doca8
+    1: doca8
+  5:
+    0: SharonBX
+    1: omertuc

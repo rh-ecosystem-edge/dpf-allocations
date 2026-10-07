@@ -1,0 +1,150 @@
+# Lab machines: hypervisors, DPU workers and shared resources.
+# Users are GitHub usernames.
+# DPUs may also carry boot_mac, root_device and bmc_user; the GUI fills them in
+# when you switch a worker to that machine.
+
+hypervisors:
+  nvd-srv-44:
+    address: nvd-srv-44.nvidia.eng.rdu2.dc.redhat.com
+    purpose: MTU-9000
+    features: [x86, MTU9000]
+
+  nvd-srv-45:
+    address: nvd-srv-45.nvidia.eng.rdu2.dc.redhat.com
+    purpose: MTU-9000
+    features: [x86, MTU9000]
+
+  wsfd-advnetlab146:
+    address: wsfd-advnetlab146.anl.eng.bos2.dc.redhat.com
+    features: [x86, MTU1500]
+
+dpus:
+  nvd-srv-06:
+    address: nvd-srv-06.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.44
+    dpu_bmc: 10.6.136.28
+    users: [kaponos]
+    cluster: pending validation
+    features: [x86, BF3, OOB]
+
+
+  nvd-srv-26:
+    address: nvd-srv-26.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.5
+    users: [wabouhamad, onaim500]
+    cluster: doca8
+    purpose: GA tests
+    features: [x86, BF3, MTU1500]
+
+
+  nvd-srv-31:
+    address: nvd-srv-31.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.10
+    users: [wabouhamad, onaim500]
+    cluster: doca8
+    purpose: GA tests
+    features: [x86, BF3, MTU9000]
+    ports: swp23s0-1
+
+
+  wsfd-advnetlab144:
+    address: wsfd-advnetlab144.anl.eng.bos2.dc.redhat.com
+    bmc: 10.26.16.27
+    dpu_bmc: 10.26.16.204
+    cluster: bfb only (no net)
+    hbn_cidr: 192.168.200.0/24
+    purpose: Provisioning research + SB
+    features: [x86, BF3, MTU1500, SB, OOB]
+
+
+  wsfd-advnetlab145:
+    address: wsfd-advnetlab145.anl.eng.bos2.dc.redhat.com
+    bmc: 10.26.16.29
+    users: [enothen, tsorya]
+    cluster: bfb only (no net)
+    hbn_cidr: 192.168.200.0/24
+    purpose: Provisioning research + SB
+    features: [x86, BF3, MTU1500, SB]
+
+
+  nvd-srv-25:
+    address: nvd-srv-25.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.4
+    users: [gocetinkaya]
+    hbn_cidr: 10.6.156.248/29
+    features: [x86, BF3, MTU9000]
+
+  nvd-srv-23:
+    address: nvd-srv-23.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.2
+    dpu_bmc: 10.6.136.25
+    users: [eelgaev]
+    features: [x86, BF3, MTU9000]
+    ports: swp18s0-1
+    broken: true
+    notes: HARDWARE ISSUE - Someone enabled PTM in BIOS/UEFI
+
+  nvd-srv-22:
+    address: nvd-srv-22.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.1
+    dpu_bmc: 10.6.136.33
+    users: [SharonBX]
+    cluster: doca5
+    hbn_cidr: 10.6.156.248/29
+    features: [x86, BF3, MTU9000, OOB]
+
+  nvd-srv-24:
+    address: nvd-srv-24.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.3
+    hbn_cidr: 10.6.156.240/29
+    features: [x86, BF3, MTU9000]
+    broken: true
+    notes: BROKEN DONT USE
+
+  nvd-srv-27:
+    address: nvd-srv-27.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.6
+    dpu_bmc: 10.6.136.204
+    users: [linoyaslan]
+    cluster: igal-cno
+    hbn_cidr: 10.6.156.192/28
+    features: [x86, BF3, MTU9000]
+    ports: swp15s0-1
+
+  nvd-srv-28:
+    address: nvd-srv-28.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.7
+    users: [josecastillolema]
+    cluster: doca4
+    hbn_cidr: 10.6.156.240/29
+    features: [x86, BF3, MTU9000]
+
+  nvd-srv-36:
+    address: nvd-srv-36.nvidia.eng.rdu2.dc.redhat.com
+    bmc: 10.6.136.15
+    dpu_bmc: 10.6.136.214
+    users: [shmulikkaufman]
+    features: [arm, BF3, GPU]
+
+domains:
+  doca5:
+    api: api.doca5.nvidia.eng.rdu2.dc.redhat.com
+    api_ip: 10.6.135.30
+    apps: "*.apps.doca5.nvidia.eng.rdu2.dc.redhat.com"
+    apps_ip: 10.6.135.32
+    users: [SharonBX]
+    purpose: DPF 25.10.1
+
+  doca4:
+    api: api.doca4.nvidia.eng.rdu2.dc.redhat.com
+    api_ip: 10.6.135.22
+    apps: "*.apps.doca4.nvidia.eng.rdu2.dc.redhat.com"
+    apps_ip: 10.6.135.24
+    users: [tsorya]
+
+  doca8:
+    api: api.doca8.nvidia.eng.rdu2.dc.redhat.com
+    api_ip: 10.6.135.33
+    apps: "*.apps.doca8.nvidia.eng.rdu2.dc.redhat.com"
+    apps_ip: 10.6.135.34
+    users: [wabouhamad]
